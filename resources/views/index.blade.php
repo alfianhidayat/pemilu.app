@@ -44,8 +44,8 @@
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">Deskripsi<i class="material-icons right">more_vert</i></span>
               <div class="center">
-                <a href="{{route('vote',$username,$candidate->id)}}" class="btn btn-info" role="button">Pick</a>
-                {{-- <a href="#" class="btn white-text pick center" candidate_id="{{ $candidate->id }}">Pick</a> --}}
+                {{-- <a href="{{route('vote',$username,$candidate->id)}}" class="btn btn-info" role="button">Pick</a> --}}
+                <a href="#" class="btn white-text pick center" candidate_id="{{ $candidate->id }}">Pick</a>
               </div>
             </div>
           </div>
