@@ -100,19 +100,16 @@ class CandidateController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $candidate = Candidates::findOrFail($id);
+        $candidate = Candidates::findOrFail($id);
 
-           $this->validate($request, [
+        $this->validate($request, [
             'no_urut' => 'required',
             'tagline' => 'required',
             'ketua' => 'required',
             'wakil' => 'required',
             'visi' => 'required',
             'misi' => 'required',
-            'photos' => 'required',
         ]);
-
-
         $input = $request->all();
 
         if ($request->hasFile('photos')) {

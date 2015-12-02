@@ -36,5 +36,4 @@ Route::get('admin/candidate/hapus/{id}', array('as' => 'hapus', 'uses' => 'Candi
 
 Route::get('admin/show', 'CandidateController@index');
 
-
-
+Route::post('admin/vote', array('as' => 'vote', 'uses' => 'VotesController@store'));

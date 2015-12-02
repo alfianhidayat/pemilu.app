@@ -31,7 +31,6 @@
                 <div class="box-body">
 
                   {!! Form::model($candidate, array('route' => array('ganti', $candidate->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data', 'files'=>'true')) !!}
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <!-- text input -->
                     <div class="form-group">
                       <label>Nomor Urut</label>
@@ -62,7 +61,7 @@
 					
 					         <div class="form-group">
                       <label for="exampleInputFile">Upload Foto</label>
-                      <input type="file" id="photos" name="photos">
+                      <input type="file" id="photos" value="{{$candidate->photos}}" name="photos">
                       <p class="help-block">Upload foto pasangan</p>
                     </div>
 					
