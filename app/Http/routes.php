@@ -34,6 +34,10 @@ Route::put('admin/candidate/ubah/{id}', array('as' => 'ganti', 'uses' => 'Candid
 
 Route::get('admin/candidate/hapus/{id}', array('as' => 'hapus', 'uses' => 'CandidateController@destroy'));
 
+Route::get('admin/vote/hapus/{id}', array('as' => 'deletevote', 'uses' => 'VotesController@destroy'));
+
 Route::get('admin/show', 'CandidateController@index');
 
 Route::post('admin/vote', array('as' => 'vote', 'uses' => 'VotesController@store'));
+
+Route::get('admin/vote', 'VotesController@index');

@@ -17,7 +17,8 @@ class VotesController extends Controller
      */
     public function index()
     {
-        //
+        $votes = Votes::all();
+        return view('admin.pages.vote')->withVotes($votes);
     }
 
     /**
@@ -38,18 +39,7 @@ class VotesController extends Controller
      */
     public function store($id, $username)
     {
-        $this->validate($request, [
-            'username' => 'required',
-            'candidate_id' => 'required',
-        ]);
 
-        $input = $request->all();
-        $input['username'] = $username;
-        $input['candidate_id'] = $id;
-
-        Votes::create($input);
-
-        return view('index2');
     }
 
     /**
@@ -60,7 +50,7 @@ class VotesController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -94,6 +84,10 @@ class VotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vote = Votes::findOrFail($id);
+
+        $vote->delete();
+
+        return redirect()->back();
     }
 }

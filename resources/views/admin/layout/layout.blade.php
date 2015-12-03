@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title> LepaxCMS | Dashboard</title>
+    <title> PPU HMSI | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
@@ -11,6 +11,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/plugins/datatables/dataTables.bootstrap.css')}}"/>  
    
     <!-- jvectormap -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}"/>  
@@ -29,7 +31,8 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Theme style -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/admin.css')}}"/>  
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/admin.css')}}"/>   --}}
+
 
     <!--jQuery Include-->
     <!-- jQuery 2.1.4 -->
@@ -53,7 +56,20 @@
     <script type="text/javascript" src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script> 
     <script type="text/javascript" src="{{asset('assets/plugins/datatables/dataTables.bootstrap.min.js')}}"></script> 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script type="text/javascript" src="{{asset('assets/dist/js/pages/dashboard2.js')}}"></script> 
+
+    <script>
+      $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false
+        });
+      });
+    </script>
   </head>
   <body class="skin-blue sidebar-mini">
     <div class="wrapper">
@@ -61,9 +77,9 @@
         <!-- Logo -->
         <a href="" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"></b>PPUH</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+          <span class="logo-lg"><b>Admin</b>PPUH</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -265,30 +281,18 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-user"></i>
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <span class="hidden-xs">Administrator</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <i class="fa fa-user"></i>
                     <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      Administrator
                     </p>
                   </li>
                   <!-- Menu Body -->
-                  <li class="user-body">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </li>
-                  <!-- Menu Footer-->
+                 <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
@@ -300,9 +304,9 @@
                 </ul>
               </li>
               <!-- Control Sidebar Toggle Button -->
-              <li>
+              {{-- <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-              </li>
+              </li> --}}
             </ul>
           </div>
         </nav>
@@ -323,9 +327,9 @@
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.0
+          <b>Version</b> 1.0
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2015 <a href="prodase.bis.telkomuniverisity.ac.id">Prodase Laboratory</a></strong> All rights reserved.
       </footer>
       <!-- Control Sidebar -->
       <aside class="control-sidebar control-sidebar-dark">
@@ -484,6 +488,23 @@
       <div class='control-sidebar-bg'></div>
     </div><!-- ./wrapper -->
     <!-- AdminLTE for demo purposes -->
-    <script type="text/javascript" src="{{asset('assets/dist/js/scripts.js')}}"></script> 
+    {{-- <script type="text/javascript" src="{{asset('assets/dist/js/scripts.js')}}"></script>  --}}
+
+    <!-- jQuery 2.1.4 -->
+    <script src="{{assets('assets/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
+    <!-- Bootstrap 3.3.5 -->
+     <script src="{{assets('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <!-- DataTables -->
+     <script src="{{assets('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+     <script src="{{assets('assets/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+    <!-- SlimScroll -->
+     <script src="{{assets('assets/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
+    <!-- FastClick -->
+     <script src="{{assets('assets/plugins/fastclick/fastclick.min.js')}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{assets('assets/dist/js/app.min.js')}}"></script>
+    <script src="{{assets('assets/dist/js/demo.js')}}"></script>
+    <!-- page script -->
+
   </body>
 </html>

@@ -12,11 +12,12 @@ class Votes extends Model
      * @var string
      */
     protected $table = 'votes';
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['username', 'candidate_id'];
+    protected $fillable = ['username','nim','nama','angkatan','candidate_id'];
 }

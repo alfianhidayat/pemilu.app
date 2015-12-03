@@ -50,7 +50,7 @@
     </div>
     <div class="col l3 s12">
       <h5 class="white-text">Developer Team</h5>
-      <h6 class="white-text">Panda</h6>
+      <h6 class="white-text">Prodase Laboratory</h6>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
               <i class="fa fa-user fa-5x"></i>
             </div>
             <div class="pull-left info">
-              <p>Alexander Pierce</p>
+              <p>Administrator</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -23,7 +23,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
+            <li class="treeview">
               <a href="index">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -39,6 +39,11 @@
                 <li><a href="show"><i class="fa fa-circle-o"></i>All Candidate</a></li>
                 <li><a href="add"><i class="fa fa-circle-o"></i>Add New</a></li>
               </ul>
+            </li>
+            <li class="treeview">
+              <a href="vote">
+                <i class="fa fa-dashboard"></i> <span>Votes</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
             </li>
             <!--Article Menu-->
           </ul>
