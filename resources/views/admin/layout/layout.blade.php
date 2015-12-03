@@ -501,10 +501,14 @@
      <script src="{{assets('assets/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
     <!-- FastClick -->
      <script src="{{assets('assets/plugins/fastclick/fastclick.min.js')}}"></script>
+     <script src="{{assets('assets/plugins/chartjs/Chart.min.js')}}"></script>
+
     <!-- AdminLTE App -->
     <script src="{{assets('assets/dist/js/app.min.js')}}"></script>
     <script src="{{assets('assets/dist/js/demo.js')}}"></script>
     <!-- page script -->
+
+    @yield('scripts')
 
   </body>
 </html>

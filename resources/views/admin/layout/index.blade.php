@@ -4,9 +4,90 @@
 
 @section('content')
 
+     <script type="text/javascript" src="{{asset('assets/dist/js/pages/dashboard2.js')}}"></script> 
 
-    <script type="text/javascript" src="{{asset('assets/dist/js/pages/dashboard2.js')}}"></script> 
-    <script type="text/javascript" src="{{asset('assets/dist/js/pages/chartjs.js')}}"></script> 
+     <script type="text/javascript">
+      $(function () {
+
+                    //-------------
+              //- BAR CHART -
+              //-------------
+          var barChartCanvas = $("#barChart").get(0).getContext("2d");
+          var barChart = new Chart(barChartCanvas);
+
+              // var barChartData = salesChartData;
+
+          var barChartData = {
+          labels: ["Day 1", "Day 2", "Day 3"],
+          datasets: [
+            {
+              label: "Candidate 1",
+              fillColor: "rgb(210, 214, 222)",
+              strokeColor: "rgb(210, 214, 222)",
+              pointColor: "rgb(210, 214, 222)",
+              pointStrokeColor: "#c1c7d1",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgb(220,220,220)",
+              data: ["{{$coba[0]->count}}", "{{$coba[3]->count}}", 0]
+            },
+            {
+              label: "Candidate 2",
+              fillColor: "rgba(60,141,188,0.9)",
+              strokeColor: "rgba(60,141,188,0.8)",
+              pointColor: "#3b8bba",
+              pointStrokeColor: "rgba(60,141,188,1)",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(60,141,188,1)",
+              data: ["{{$coba[1]->count}}", "{{$coba[4]->count}}", 0]
+            },
+            {
+              label: "Candidate 3",
+              fillColor: "rgba(60,141,188,0.9)",
+              strokeColor: "rgba(60,141,188,0.8)",
+              pointColor: "#3b8bba",
+              pointStrokeColor: "rgba(60,141,188,1)",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(60,141,188,1)",
+              data: ["{{$coba[2]->count}}", "{{$coba[5]->count}}", 0]
+            }
+          ]
+        };
+
+              barChartData.datasets[1].fillColor = "#00a65a";
+              barChartData.datasets[1].strokeColor = "#00a65a";
+              barChartData.datasets[1].pointColor = "#00a65a";
+              var barChartOptions = {
+                //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+                scaleBeginAtZero: true,
+                //Boolean - Whether grid lines are shown across the chart
+                scaleShowGridLines: true,
+                //String - Colour of the grid lines
+                scaleGridLineColor: "rgba(0,0,0,.05)",
+                //Number - Width of the grid lines
+                scaleGridLineWidth: 1,
+                //Boolean - Whether to show horizontal lines (except X axis)
+                scaleShowHorizontalLines: true,
+                //Boolean - Whether to show vertical lines (except Y axis)
+                scaleShowVerticalLines: true,
+                //Boolean - If there is a stroke on each bar
+                barShowStroke: true,
+                //Number - Pixel width of the bar stroke
+                barStrokeWidth: 2,
+                //Number - Spacing between each of the X value sets
+                barValueSpacing: 5,
+                //Number - Spacing between data sets within X values
+                barDatasetSpacing: 1,
+                //String - A legend template
+                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+                //Boolean - whether to make the chart responsive
+                responsive: true,
+                maintainAspectRatio: true
+              };
+
+              barChartOptions.datasetFill = false;
+              barChart.Bar(barChartData, barChartOptions);
+      });
+     </script>
 
 		<section class="content-header">
           <h1>
@@ -95,12 +176,18 @@
                   <div class="row">
                     <div class="col-md-8">
                       <p class="text-center">
-                        <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                        <strong>Vote</strong>
                       </p>
                       <div class="chart">
                         <!-- Sales Chart Canvas -->
-                        <canvas id="salesChart" style="height: 180px;"></canvas>
+                        <canvas class="hidden" id="salesChart" style="height: 180px;"></canvas>
                       </div><!-- /.chart-responsive -->
+                      <div class="chart-responsive">
+                        <canvas id="pieChart" class="hidden" height="150"></canvas>
+                      </div><!-- ./chart-responsive -->
+                      <div class="chart">
+                        <canvas id="barChart" style="height:200px"></canvas>
+                      </div>
                     </div><!-- /.col -->
                     <div class="col-md-4">
                       <p class="text-center">
@@ -175,121 +262,53 @@
 
           <!-- Main row -->
           <div class="row">              
-            <div class="col-md-6">
+            <div class="col-md-12">
               <!-- Info Boxes Style 2 -->
               <div class="info-box bg-yellow">
-                <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                <span class="info-box-icon">1</span>
                 <div class="info-box-content">
-                  <span class="info-box-text">Inventory</span>
-                  <span class="info-box-number">5,200</span>
+                  <span class="info-box-text">{{$candidates[0]->tagline}}</span>
+                  <span class="info-box-number">{{$quick[0]->count}}</span>
                   <div class="progress">
-                    <div class="progress-bar" style="width: 50%"></div>
+                    <div class="progress-bar" style="width: {{($quick[0]->count)/$count*100}}%"></div>
                   </div>
                   <span class="progress-description">
-                    50% Increase in 30 Days
+                    Total Votes {{$count}}
                   </span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
               <div class="info-box bg-green">
-                <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+                <span class="info-box-icon">2</span>
                 <div class="info-box-content">
-                  <span class="info-box-text">Mentions</span>
-                  <span class="info-box-number">92,050</span>
+                  <span class="info-box-text">{{$candidates[1]->tagline}}</span>
+                  <span class="info-box-number">{{$quick[1]->count}}</span>
                   <div class="progress">
-                    <div class="progress-bar" style="width: 20%"></div>
+                    <div class="progress-bar" style="width: {{($quick[1]->count)/$count*100}}%"></div>
                   </div>
                   <span class="progress-description">
-                    20% Increase in 30 Days
+                    Total Votes {{$count}}
                   </span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
               <div class="info-box bg-red">
-                <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
+                <span class="info-box-icon">3</i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">Downloads</span>
-                  <span class="info-box-number">114,381</span>
+                  <span class="info-box-text">{{$candidates[2]->tagline}}</span>
+                  <span class="info-box-number">{{$quick[2]->count}}</span>
                   <div class="progress">
-                    <div class="progress-bar" style="width: 70%"></div>
+                    <div class="progress-bar" style="width: {{($quick[2]->count)/$count*100}}%"></div>
                   </div>
                   <span class="progress-description">
-                    70% Increase in 30 Days
+                    Total Votes {{$count}}
                   </span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
-              <div class="info-box bg-aqua">
-                <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
-                <div class="info-box-content">
-                  <span class="info-box-text">Direct Messages</span>
-                  <span class="info-box-number">163,921</span>
-                  <div class="progress">
-                    <div class="progress-bar" style="width: 40%"></div>
-                  </div>
-                  <span class="progress-description">
-                    40% Increase in 30 Days
-                  </span>
-                </div><!-- /.info-box-content -->
-              </div><!-- /.info-box -->
+              
             </div>
-            <div class="col-md-6">
-              <div class="box box-default">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Browser Usage</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <div class="row">
-                    <div class="col-md-8">
-                      <div class="chart-responsive">
-                        <canvas id="pieChart" height="150"></canvas>
-                      </div><!-- ./chart-responsive -->
-                    </div><!-- /.col -->
-                    <div class="col-md-4">
-                      <ul class="chart-legend clearfix">
-                        <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
-                        <li><i class="fa fa-circle-o text-green"></i> IE</li>
-                        <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
-                        <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
-                        <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
-                        <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
-                      </ul>
-                    </div><!-- /.col -->
-                  </div><!-- /.row -->
-                </div><!-- /.box-body -->
-                <div class="box-footer no-padding">
-                  <ul class="nav nav-pills nav-stacked">
-                    <li><a href="#">United States of America <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                    <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a></li>
-                    <li><a href="#">China <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
-                  </ul>
-                </div><!-- /.footer -->
-              </div><!-- /.box -->
-            </div>
+            
           </div><!-- /.row -->
-          <div class="row">
-            <div class="col-md-6">
-                            <!-- BAR CHART -->
-              <div class="box box-success">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Bar Chart</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div>
-                <div class="box-body">
-                  <div class="chart">
-                    <canvas id="barChart" style="height:230px"></canvas>
-                  </div>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div>
-          </div>
+          
         </section><!-- /.content -->
+@stop
 
-
-
-
-        @stop
+        
