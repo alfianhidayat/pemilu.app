@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 03 Des 2015 pada 01.39
+-- Generation Time: 03 Des 2015 pada 15.44
 -- Versi Server: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `candidates` (
   `status` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `candidates`
@@ -47,7 +47,8 @@ CREATE TABLE IF NOT EXISTS `candidates` (
 INSERT INTO `candidates` (`id`, `no_urut`, `tagline`, `ketua`, `wakil`, `visi`, `misi`, `photos`, `status`, `created_at`, `updated_at`) VALUES
 (30, 1, '#BERCANDA', 'GRE', 'MAN', 'Visi Sayaaaaaaaaaaaaaaaa', 'Misi Sayaaaaaaaaaaaaa', '36167.png', 0, '2015-12-01 19:06:53', '2015-12-02 07:49:28'),
 (32, 2, '#MENLANGKAHBERSAMA', 'Miko', 'Haekal', 'Visi Kitaaaa', 'Misi Kita', '91086.png', 0, '2015-12-02 03:23:41', '2015-12-02 07:49:35'),
-(34, 3, '#PASTI', 'Ari', 'Oji', 'Visi', 'Misi', '52696.png', 0, '2015-12-02 07:39:43', '2015-12-02 07:49:42');
+(34, 3, '#PASTI', 'Ari', 'Oji', 'Visi', 'Misi', '52696.png', 0, '2015-12-02 07:39:43', '2015-12-02 07:49:42'),
+(35, 4, '#APALAH', 'Saya', 'Kamu', 'Visi saya', 'Misi', '93592.png', 0, '2015-12-03 05:27:21', '2015-12-03 05:27:58');
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,7 @@ INSERT INTO `users` (`username`, `password`, `remember_token`, `id_number`, `nam
 ('ABG', '$2y$10$NpWaa3TRkKH8QIrP8pfIwuboWEPxtzkx2VAIwZkJHLARZM.ysraZ6', NULL, '1202144098', 'Muhammad Abidghozi Gerungan', 1, '2015-11-28 18:09:55', '2015-11-28 18:10:40'),
 ('ADI', '$2y$10$IWjH7eAhnCJsoD1EkMlxoOfJ.5.gtgKOg/tP6/l3GQ1O1cj3A2Ojm', NULL, '1202140247', 'Muhammad Widyan Riadhi Fakhrun', 1, '2015-11-28 18:09:52', '2015-11-28 18:09:52'),
 ('ADP', '$2y$10$sC.SA5HgYG4Is1ko16lbuO0w0HlXGvONtiOt8hX3kozFtAFOGGO4y', NULL, '1106120111', 'Adi Putro', 1, '2015-11-28 18:15:06', '2015-11-28 18:15:06'),
-('ADT', '$2y$10$.Qa5Nl/3addm1/D63ls0fuinhTTl/JLb.WbyUCvX6DDPxuwu7PbfG', 'JAGZYe13TV5KlvMnB1bgm6xOkxP8MeYaK9Mm1qCpBCUjsvygdiZLHyniET6E', '1106130020', 'Alfian Hidayat', 1, '2015-11-28 18:12:58', '2015-12-02 10:30:10'),
+('ADT', '$2y$10$.Qa5Nl/3addm1/D63ls0fuinhTTl/JLb.WbyUCvX6DDPxuwu7PbfG', 'Xjw6ZPLzcvCLKmLHoE6TdR2DyoUM1UgGfa8SRRJoJCEZP8H62NirixRH24Z0', '1106130020', 'Alfian Hidayat', 1, '2015-11-28 18:12:58', '2015-12-03 11:55:27'),
 ('AFN', '$2y$10$D1PHal9Uz7ZML5/zJRY55eAhgBCpwi7NKpXWCUNR4lyOHH1xjhYVW', NULL, '1202144037', 'Arief Rachman Hartadi', 1, '2015-11-28 17:58:10', '2015-11-28 17:58:10'),
 ('AKA', '$2y$10$OPgOeuyCZGFIBTJ1.d.lYukrwx4MkCMDl/Qb61txY/YI0RQJIRftq', NULL, '1106132005', 'Aulia Kurnia Andana Warih', 1, '2015-11-28 18:12:58', '2015-11-28 18:12:58'),
 ('ALF', '$2y$10$rJHiQ4JUc7WeLeOCnK0r8eAE/RoeBciKQbIApC9DrQOZi2cYjkLYy', NULL, '1106130073', 'Alfi Nuri Khoirunisa', 1, '2015-11-28 18:12:59', '2015-11-28 18:12:59'),
@@ -129,11 +130,26 @@ INSERT INTO `users` (`username`, `password`, `remember_token`, `id_number`, `nam
 --
 
 CREATE TABLE IF NOT EXISTS `votes` (
+`id` int(11) NOT NULL,
   `username` varchar(20) DEFAULT NULL,
+  `nim` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `angkatan` varchar(10) NOT NULL,
   `candidate_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `votes`
+--
+
+INSERT INTO `votes` (`id`, `username`, `nim`, `nama`, `angkatan`, `candidate_id`, `created_at`, `updated_at`) VALUES
+(3, 'ADI', 12346, 'Widyan', '2014', 34, '2015-12-03 18:18:35', '2015-12-03 18:18:35'),
+(4, 'ASR', 12347, 'Asri', '2013', 35, '2015-12-03 18:19:03', '2015-12-03 18:19:03'),
+(5, 'BBM', 12348, 'Basworo', '2012', 30, '2015-12-03 18:19:03', '2015-12-03 18:19:03'),
+(6, 'CNP', 11312312, 'Cahya', '2012', 34, '2015-12-03 18:19:03', '2015-12-03 18:19:03'),
+(7, 'ADT', 131233, 'Alfian', '2013', 34, '2015-12-03 20:13:42', '2015-12-03 20:13:42');
 
 --
 -- Indexes for dumped tables
@@ -155,7 +171,7 @@ ALTER TABLE `users`
 -- Indexes for table `votes`
 --
 ALTER TABLE `votes`
- ADD KEY `username` (`username`), ADD KEY `candidate_id` (`candidate_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `username` (`username`), ADD KEY `candidate_id` (`candidate_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -165,7 +181,12 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT for table `candidates`
 --
 ALTER TABLE `candidates`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `votes`
+--
+ALTER TABLE `votes`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --

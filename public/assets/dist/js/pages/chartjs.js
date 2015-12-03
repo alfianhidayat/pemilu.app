@@ -39,4 +39,4 @@ $(function () {
 
         barChartOptions.datasetFill = false;
         barChart.Bar(barChartData, barChartOptions);
-      });
+});
