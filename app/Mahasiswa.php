@@ -4,19 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Votes extends Model 
+class Mahasiswa extends Model 
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'votes';
+    protected $table = 'mahasiswa';
+    protected $primaryKey = 'nim';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['nim','candidate_id'];
+    protected $fillable = ['nim', 'nama','kelas','angkatan'];
 }

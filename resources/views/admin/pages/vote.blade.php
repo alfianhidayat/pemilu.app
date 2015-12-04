@@ -30,9 +30,9 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Username</th>
                         <th>NIM</th>
                         <th>Nama</th>
+                        <th>Kelas</th>
                         <th>Angkatan</th>
                         <th>Tools</th>
                       </tr>
@@ -42,19 +42,19 @@
                       @foreach($votes as $vote)
                       <tr>
                         <td>{{$a++}}</td>
-                        <td>{{$vote->username}}</td>
                         <td>{{$vote->nim}}</td>
                         <td>{{$vote->nama}}</td>
+                        <td>{{$vote->kelas}}</td>
                         <td>{{$vote->angkatan}}</td>
-                        <td><a href="{{route('deletevote',$vote->id)}}" class="btn btn-warning" role="button">Reset</a></td>
+                        <td><a href="{{route('deletevote',$vote->nim)}}" class="btn btn-warning" role="button">Reset</a></td>
                       </tr>
                       @endforeach
                     <tfoot>
                       <tr>
                         <th>No</th>
-                        <th>Username</th>
                         <th>NIM</th>
                         <th>Nama</th>
+                        <th>Kelas</th>
                         <th>Angkatan</th>
                         <th>Tools</th>
                       </tr>

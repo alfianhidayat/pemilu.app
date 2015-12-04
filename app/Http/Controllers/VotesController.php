@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Votes;
+use DB;
 
 class VotesController extends Controller
 {
@@ -17,7 +18,11 @@ class VotesController extends Controller
      */
     public function index()
     {
-        $votes = Votes::all();
+        
+        $votes = DB::table('votes')
+            ->join('mahasiswa', 'votes.nim', '=', 'mahasiswa.nim')
+            ->select('mahasiswa.nim', 'mahasiswa.nama', 'mahasiswa.kelas', 'mahasiswa.angkatan')
+            ->get();
         return view('admin.pages.vote')->withVotes($votes);
     }
 
@@ -84,9 +89,11 @@ class VotesController extends Controller
      */
     public function destroy($id)
     {
-        $vote = Votes::findOrFail($id);
+        // $vote = Votes::findOrFail($id);
 
-        $vote->delete();
+        // $vote->delete();
+
+        DB::table('votes')->where('nim', '=', $id)->delete();
 
         return redirect()->back();
     }

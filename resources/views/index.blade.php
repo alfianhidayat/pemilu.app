@@ -59,7 +59,7 @@
     </a>
     <div class="row"><a href="">
       <div class="col l6 s12">
-        <h5 class="white-text">PPUH</h5>
+        <h5 class="white-text">PPHU</h5>
         <p class="grey-text text-lighten-4"></p>
       </div>
     </a>
@@ -97,10 +97,10 @@
     $.ajax({
       url: "{{'pick'}}",
       method: "POST",
+      dataType: "json",
       data: "_token="+$token+"&candidate_id="+$candidate_id,
       success: function(result){
         alert(result.message);
-        location.reload();
       },
       error: function(e, data){
         alert('Terjadi kesalahan saat melakukan pemilihan kandidat, silahkan dicoba kembali');

@@ -15,15 +15,16 @@ Route::get('/', 'HomeController@index');
 Route::any('pick', 'HomeController@pick');
 
 // Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('auth/login', 'HomeController@getLogin');
+Route::post('auth/login', 'HomeController@postLogin');
+Route::get('auth/logout', 'HomeController@getLogout');
 
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::get('admin/index', 'dashboardController@create');
+Route::get('admin/index', 'dashboardController@index');
+Route::get('admin/count', 'dashboardController@create');
 
 Route::get('admin/add', 'CandidateController@create');
 Route::any('admin/cadidate/insert', 'CandidateController@store');

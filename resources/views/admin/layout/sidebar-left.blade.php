@@ -45,6 +45,11 @@
                 <i class="fa fa-dashboard"></i> <span>Votes</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>
+            <li class="treeview">
+              <a href="count">
+                <i class="fa fa-dashboard"></i> <span>Quick Count</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+            </li>
             <!--Article Menu-->
           </ul>
         </section>

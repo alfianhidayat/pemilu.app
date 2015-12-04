@@ -37,7 +37,7 @@
                   <form role="form" action="cadidate/insert">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <!-- text input -->
-                    <img src="/pemilu.app/public/uploads/image/{{$candidate->photos}}" class="img-circle" width="70%">
+                    <img src="/uploads/image/{{$candidate->photos}}" class="img-circle" width="70%">
                     <div class="form-group">
                       <label>Nomor Urut</label>
                       <input type="text" class="form-control" value="{{ $candidate->no_urut }}" disabled>

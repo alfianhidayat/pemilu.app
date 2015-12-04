@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>PPU HMSI</title>
-	<link rel="stylesheet" type="text/css" href="/pemilu.app/public/lib/css/materialize.min.css">
-	<link rel="stylesheet" type="text/css" href="/pemilu.app/public/lib/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="/lib/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="/lib/css/styles.css">
 	<link href='/pemilu.app/public/lib/css/mapbox.css' type="text/css" rel='stylesheet' />
 </head>
 <body>
@@ -75,7 +75,7 @@
 	</div>
 </div>
 </footer>
-<script type="text/javascript" src="/pemilu.app/public/lib/js/jquery.js"></script>
-<script type="text/javascript" src="/pemilu.app/public/lib/js/materialize.min.js"></script>
+<script type="text/javascript" src="/lib/js/jquery.js"></script>
+<script type="text/javascript" src="/lib/js/materialize.min.js"></script>
 </body>
 </html>
